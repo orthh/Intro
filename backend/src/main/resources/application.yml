@@ -1,15 +1,17 @@
 spring:
-    server:
-        port: 8080
-        address: 0.0.0.0
-    mybatis:
-        mapper-locations: classpath:mybatis/mapper/**/**.xml
     datasource:
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/persoalrecord?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
+        url: jdbc:mysql://localhost:3306/personalrecord?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
         username: orthh
         password: 12345
+
+server:
+    port: 8080
 
 logging:
     level:
         root: info
+
+cors:
+    allowed:
+        origins: http://localhost:3000

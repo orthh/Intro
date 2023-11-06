@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: 'orthh',
+  name: 'orthh page',
   description:
     '개인 기록, 포트폴리오 페이지',
   mainNav: [
@@ -9,10 +9,22 @@ export const siteConfig = {
       title: 'Home',
       href: '/',
     },
+    {
+      title: 'Board',
+      href: '/board'
+    },
+    {
+      title: 'Portfolio',
+      href: '/portfolio'
+    }
+    
   ],
   links: {
-    //twitter: 'https://twitter.com/zbeyens',
     github: 'https://github.com/orthh',
     docs: 'https://platejs.org',
   },
+  login: {
+    title : '로그인',
+    href: '/login'
+  }
 };
