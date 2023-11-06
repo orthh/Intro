@@ -37,10 +37,11 @@ public class UserController {
     private final UserService userService;
 
 	List<User> users = new ArrayList<User>();
-    
+
     @Operation(summary = "로그인 성공 실패 여부를 가져옵니다.")
     @PostMapping("/login")
     public ResponseEntity<UserLoginResDto> login(@RequestBody UserLoginReqDto request) {
+        log.info("start login with userEmail = {}", request.getEmail());
         UserLoginResDto user = userService.authenticate(request.getEmail(), request.getPassword());
         if (user != null) {
             return ResponseEntity.ok(user);

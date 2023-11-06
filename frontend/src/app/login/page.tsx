@@ -3,12 +3,6 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { use, useState } from "react";
 
-// async function fetchLogin(request: NextRequest) {
-//     const res = await fetch("http://localhost:8080/api/users/login");
-//     const data = await res.json();
-//     return data;
-// }
-
 export default function IndexPage() {
     const router = useRouter();
     const [email, setEmail] = useState('');
