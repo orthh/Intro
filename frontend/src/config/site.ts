@@ -1,9 +1,9 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: 'Next.js',
+  name: 'orthh',
   description:
-    'Rich-text editor components built with Radix UI and Tailwind CSS.',
+    '개인 기록, 포트폴리오 페이지',
   mainNav: [
     {
       title: 'Home',
@@ -11,8 +11,8 @@ export const siteConfig = {
     },
   ],
   links: {
-    twitter: 'https://twitter.com/zbeyens',
-    github: 'https://github.com/udecode/plate',
+    //twitter: 'https://twitter.com/zbeyens',
+    github: 'https://github.com/orthh',
     docs: 'https://platejs.org',
   },
 };
