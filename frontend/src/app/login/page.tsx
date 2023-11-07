@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { use, useState } from "react";
+import { useState } from "react";
 
 export default function IndexPage() {
     const router = useRouter();
@@ -12,7 +12,7 @@ export default function IndexPage() {
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8080/api/users/login', {
+            const response = await axios.post('/api/users/login', {
                 email,
                 password,
             });
@@ -64,7 +64,7 @@ export default function IndexPage() {
                     </div>
                     <div className="mt-4">
                         <label className="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
-                        <input className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" 
+                        <input className="bg-gray-200 text-gray-700 focus:outline-none border border-gray-300 rounded py-2 px-4 block w-full appearance-none" 
                                type="email" 
                                value={email}
                                onChange={(e) => setEmail(e.target.value)}/>
@@ -74,7 +74,7 @@ export default function IndexPage() {
                             <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
                             <a href="#" className="text-xs text-gray-500">Forget Password?</a>
                         </div>
-                        <input className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" 
+                        <input className="bg-gray-200 text-gray-700 focus:outline-none border border-gray-300 rounded py-2 px-4 block w-full appearance-none" 
                                type="password" 
                                value={password}
                                onChange={(e) => setPassword(e.target.value)}/>

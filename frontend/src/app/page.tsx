@@ -1,5 +1,4 @@
 import Link from 'next/link';
-
 import { siteConfig } from '@/config/site';
 import PlateEditor from '@/components/plate-editor';
 import { buttonVariants } from '@/components/plate-ui/button';
