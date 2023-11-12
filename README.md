@@ -18,3 +18,4 @@ CI/CD 구현완료
 ![스크린샷 2023-11-12 145716](https://github.com/orthh/PersonalRecord/assets/107793363/64bc8992-44a3-47ef-bdeb-fca726b3d966)
 
 ## jenkins
+![스크린샷 2023-11-12 162919](https://github.com/orthh/PersonalRecord/assets/107793363/f623a640-9e03-4760-b648-b953f416c97a)
