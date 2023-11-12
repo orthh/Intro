@@ -13,3 +13,8 @@ CI/CD 구현완료
 서버(CI/CD) : AWS EC2 + jenkins + Docker + nginx + Github Webhook
 <br/>
 프론트 엔드 : Reactjs + typescript + tailwincss
+
+## 시스템 아키텍처
+![스크린샷 2023-11-12 145716](https://github.com/orthh/PersonalRecord/assets/107793363/64bc8992-44a3-47ef-bdeb-fca726b3d966)
+
+## jenkins
