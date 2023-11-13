@@ -1,7 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import BasicEditor from 'components/editor/BasicEditor';
 import Header from 'pages/header/Header';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from 'pages/sign/Login';

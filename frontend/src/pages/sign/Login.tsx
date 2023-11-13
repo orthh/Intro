@@ -38,7 +38,7 @@ const Login = () => {
                 <div className="w-full p-8 lg:w-1/2">
                    
                     <p className="text-xl text-gray-600 text-center">Welcome!</p>
-                    <a href="#" className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
+                    <button className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
                         <div className="px-4 py-3">
                             <svg className="h-6 w-6" viewBox="0 0 40 40">
                                 <path
@@ -56,16 +56,16 @@ const Login = () => {
                             </svg>
                         </div>
                         <h1 className="px-4 py-3 w-5/6 text-center text-gray-600 font-bold">Sign in with Google</h1>
-                    </a>
-                    <a href="#" className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
+                    </button>
+                    <button className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
                         <div className="px-4 py-3">
                             <img src={kakao} alt="Kakao logo" className="w-[25px] h-auto tracking-tight" />
                         </div>
                         <h1 className="px-4 py-3 w-5/6 text-center text-gray-600 font-bold">Sign in with Kakao</h1>
-                    </a>
+                    </button>
                     <div className="mt-4 flex items-center justify-between">
                         <span className="border-b w-1/5 lg:w-1/4"></span>
-                        <a href="#" className="text-xs text-center text-gray-500 uppercase">or login with email</a>
+                        <button className="text-xs text-center text-gray-500 uppercase">or login with email</button>
                         <span className="border-b w-1/5 lg:w-1/4"></span>
                     </div>
                     <div className="mt-4">
@@ -78,7 +78,7 @@ const Login = () => {
                     <div className="mt-4">
                         <div className="flex justify-between">
                             <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
-                            <a href="#" className="text-xs text-gray-500">Forget Password?</a>
+                            <button className="text-xs text-gray-500">Forget Password?</button>
                         </div>
                         <input className="bg-gray-200 text-gray-700 focus:outline-none border border-gray-300 rounded py-2 px-4 block w-full appearance-none" 
                                type="password" 
@@ -92,7 +92,7 @@ const Login = () => {
                     </div>
                     <div className="mt-4 flex items-center justify-between">
                         <span className="border-b w-1/5 md:w-1/4"></span>
-                        <a href="#" className="text-xs text-gray-500 uppercase">or sign up</a>
+                        <button className="text-xs text-gray-500 uppercase">or sign up</button>
                         <span className="border-b w-1/5 md:w-1/4"></span>
                     </div>
                 </div>
