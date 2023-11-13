@@ -12,34 +12,33 @@ import io.swagger.v3.oas.models.info.Info;
 @OpenAPIDefinition
 public class SwaggerConfig {
     @Bean
-    // localhost:xxxx/swagger-ui/index.html#/  << 접속경로
+    // localhost:xxxx/swagger-ui/index.html/ << 접속경로
     public OpenAPI baseOpenAPI() {
         return new OpenAPI().info(new Info()
-                    .title("orthh's API")
-                    .version("0.0.1")
-                    .description("개인기록 페이지"));
+                .title("orthh's API")
+                .version("0.0.1")
+                .description("개인기록 페이지"));
     }
 
     @Bean
-    public GroupedOpenApi group1(){
-        String[] packagesToScan = {"com.orthh.backend.admin"};
+    public GroupedOpenApi group1() {
+        String[] packagesToScan = { "com.orthh.backend.admin" };
 
         return GroupedOpenApi.builder()
-                             .group("admin")
-                             .packagesToScan(packagesToScan)
-                             .build();
+                .group("admin")
+                .packagesToScan(packagesToScan)
+                .build();
     }
 
     @Bean
-    public GroupedOpenApi group2(){
-        String[] pathsToMatch = {"/api/users/**"};
-        //String[] pathsToExclued = {""};
+    public GroupedOpenApi group2() {
+        String[] pathsToMatch = { "/users/**" };
+        // String[] pathsToExclued = {""};
 
         return GroupedOpenApi.builder()
-                             .group("users")
-                             .pathsToMatch(pathsToMatch)
-                             .build();
+                .group("users")
+                .pathsToMatch(pathsToMatch)
+                .build();
     }
-    
 
 }

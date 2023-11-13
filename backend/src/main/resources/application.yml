@@ -1,10 +1,11 @@
 spring:
     profiles:
         active: dev
+        # active: prod
 
 server:
     port: 8081
 
 cors:
     allowed:
-        origins: http://localhost:3000
+        origins: http://localhost:3000 http://3.39.239.240 http://3.39.239.240:80 http://3.39.239.240:3000
