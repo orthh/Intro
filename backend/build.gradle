@@ -24,7 +24,8 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.1'
-	runtimeOnly 'mysql:mysql-connector-java:8.0.27'
+	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+	//runtimeOnly 'mysql:mysql-connector-java:8.0.27'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'

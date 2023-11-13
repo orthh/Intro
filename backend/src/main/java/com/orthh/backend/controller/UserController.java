@@ -30,13 +30,13 @@ import java.util.stream.Collectors;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@Tag(name="userAPI" , description = "사용자 관련 API")
-@RequestMapping("/api/users")
+@Tag(name = "userAPI", description = "사용자 관련 API")
+@RequestMapping("/users")
 public class UserController {
 
     private final UserService userService;
 
-	List<User> users = new ArrayList<User>();
+    List<User> users = new ArrayList<User>();
 
     @Operation(summary = "로그인 성공 실패 여부를 가져옵니다.")
     @PostMapping("/login")
@@ -50,24 +50,17 @@ public class UserController {
     }
 
     @Operation(summary = "모든 사용자 정보를 가져옵니다.")
-	@GetMapping(value = "/getUsers")
-	public List<User> getUsers() {
+    @GetMapping(value = "/getUsers")
+    public List<User> getUsers() {
         log.info("start getUsers");
-		return users;
-	}
+        return users;
+    }
 
-    @Operation(summary = "ID를 이용해 특정 사용자 정보를 가져옵니다.", 
-               parameters = {@Parameter(name = "id", required = true, description = "사용자 ID")})
-	@GetMapping(value = "/getUser/{id}")
-	public User getUserById(@PathVariable(value = "id") int id) {
-		return users.stream().filter(x -> x.getId()==(id)).collect(Collectors.toList()).get(0);
-	}
+    @Operation(summary = "ID를 이용해 특정 사용자 정보를 가져옵니다.", parameters = {
+            @Parameter(name = "id", required = true, description = "사용자 ID") })
+    @GetMapping(value = "/getUser/{id}")
+    public User getUserById(@PathVariable(value = "id") int id) {
+        return users.stream().filter(x -> x.getId() == (id)).collect(Collectors.toList()).get(0);
+    }
 
-    @Operation(summary = "역할을 이용해 사용자 정보를 가져옵니다.", 
-               parameters = {@Parameter(name = "role", required = true, description = "사용자 역할")})
-	@GetMapping(value = "/getUser/role/{role}")
-	public List<User> getUserByRole(@PathVariable(value = "role") String role) {
-		return users.stream().filter(x -> x.getRole().equalsIgnoreCase(role))
-				.collect(Collectors.toList());
-	}
 }
