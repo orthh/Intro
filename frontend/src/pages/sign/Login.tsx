@@ -36,9 +36,8 @@ const Login = () => {
                     >
                 </div>
                 <div className="w-full p-8 lg:w-1/2">
-                   
                     <p className="text-xl text-gray-600 text-center">Welcome!</p>
-                    <button className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
+                    <button className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100 w-full">
                         <div className="px-4 py-3">
                             <svg className="h-6 w-6" viewBox="0 0 40 40">
                                 <path
@@ -57,7 +56,7 @@ const Login = () => {
                         </div>
                         <h1 className="px-4 py-3 w-5/6 text-center text-gray-600 font-bold">Sign in with Google</h1>
                     </button>
-                    <button className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
+                    <button className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100 w-full">
                         <div className="px-4 py-3">
                             <img src={kakao} alt="Kakao logo" className="w-[25px] h-auto tracking-tight" />
                         </div>
