@@ -38,3 +38,6 @@ out/
 
 ### DB 설정 파일 ###
 application-prod.yml
+
+### JWT 설정 파일 ###
+application-jwt.yml
