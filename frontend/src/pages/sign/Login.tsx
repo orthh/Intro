@@ -64,7 +64,7 @@ const Login = () => {
                     </button>
                     <div className="mt-4 flex items-center justify-between">
                         <span className="border-b w-1/5 lg:w-1/4"></span>
-                        <button className="text-xs text-center text-gray-500 uppercase">or login with email</button>
+                        <p className="text-xs text-center text-gray-500 uppercase">or login with email</p>
                         <span className="border-b w-1/5 lg:w-1/4"></span>
                     </div>
                     <div className="mt-4">

@@ -23,7 +23,7 @@ public class SecurityConfig {
     @Value("${cors.allowed.origins}")
     private String allowedOrigins;
 
-    private final String[] allowedUrls = { "/", "/users/**", "/v3/**", "/swagger-ui/**" };
+    private final String[] allowedUrls = { "/", "/user/**", "/v3/**", "/swagger-ui/**" };
 
     // 기본적으로 csrf 비활성화 시키고, 특정 엔드포인트 (ex. "/member/join", "/auth/login")를 인가 예외시키는
     // 설정

@@ -1,6 +1,7 @@
 package com.orthh.backend.controller;
 
 import com.orthh.backend.domain.User;
+import com.orthh.backend.dto.user.UserJoinReqDto;
 import com.orthh.backend.dto.user.UserLoginReqDto;
 import com.orthh.backend.dto.user.UserLoginResDto;
 import com.orthh.backend.service.UserService;
@@ -31,21 +32,29 @@ import java.util.stream.Collectors;
 @RestController
 @RequiredArgsConstructor
 @Tag(name = "userAPI", description = "사용자 관련 API")
-@RequestMapping("/users")
+@RequestMapping("/user")
 public class UserController {
 
     private final UserService userService;
 
     List<User> users = new ArrayList<User>();
 
-    @Operation(summary = "로그인 성공 실패 여부를 가져옵니다.")
+    @Operation(summary = "회원가입")
+    @PostMapping("/join")
+    public String join(@RequestBody UserJoinReqDto request) {
+        return userService.join(request);
+    }
+
+
+    @Operation(summary = "로그인")
     @PostMapping("/login")
     public ResponseEntity<UserLoginResDto> login(@RequestBody UserLoginReqDto request) {
-        log.info("start login with userEmail = {}", request.getEmail());
-        UserLoginResDto user = userService.authenticate(request.getEmail(), request.getPassword());
+        UserLoginResDto user = userService.authenticate(request);
         if (user != null) {
+            log.info("로그인 성공 with UserEmail = {}", user.getEmail());
             return ResponseEntity.ok(user);
         }
+        log.info("로그인 실패 with UserEmail = {}", request.getEmail());
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
 

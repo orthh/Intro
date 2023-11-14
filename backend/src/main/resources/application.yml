@@ -8,4 +8,8 @@ server:
 
 cors:
     allowed:
-        origins: http://localhost:3000 http://3.39.239.240 http://3.39.239.240:80 http://3.39.239.240:3000
+        origins: http://localhost:3000
+
+# mybatis
+mybatis:
+    mapper-locations: classpath:mybatis/mapper/**/**.xml

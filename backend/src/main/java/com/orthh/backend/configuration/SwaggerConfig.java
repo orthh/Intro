@@ -32,11 +32,11 @@ public class SwaggerConfig {
 
     @Bean
     public GroupedOpenApi group2() {
-        String[] pathsToMatch = { "/users/**" };
+        String[] pathsToMatch = { "/user/**" };
         // String[] pathsToExclued = {""};
 
         return GroupedOpenApi.builder()
-                .group("users")
+                .group("user")
                 .pathsToMatch(pathsToMatch)
                 .build();
     }
