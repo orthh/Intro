@@ -24,27 +24,27 @@ public class UserService {
     /*
      * post 회원가입
      */
-    public String join(UserJoinReqDto request) {
+    public Long join(UserJoinReqDto request) {
         User user = userRepository.findByEmail(request.getEmail());
         if (user != null) {
-            return "아이디가 존재합니다.";
+            return null;
         }else{
             String encodedPassword = passwordEncoder.encode(request.getPassword());
             User newUser = User.builder()
                 .email(request.getEmail()).password(encodedPassword).nickname(request.getNickname())
                 .build();
             userRepository.save(newUser);
-            return "회원가입 성공!";
+            return userRepository.findByEmail(request.getEmail()).getId();
         }
     }
 
     /*
      * post 로그인
      */
-    public UserLoginResDto authenticate(UserLoginReqDto request) {
+    public Long authenticate(UserLoginReqDto request) {
         User user = userRepository.findByEmail(request.getEmail());
         if (user != null && passwordEncoder.matches(request.getPassword(), user.getPassword())) {
-            return new UserLoginResDto(user);
+            return user.getId();
         }
         return null;
     }

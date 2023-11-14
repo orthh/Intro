@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import axios from "axios";
 import kakao from "../../assets/img/kakao.png";
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const navigate = useNavigate()
@@ -12,7 +13,7 @@ const Login = () => {
   const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8081/users/login', {
+            const response = await axios.post('http://localhost:8081/user/login', {
                 email,
                 password,
             });
@@ -91,7 +92,9 @@ const Login = () => {
                     </div>
                     <div className="mt-4 flex items-center justify-between">
                         <span className="border-b w-1/5 md:w-1/4"></span>
-                        <button className="text-xs text-gray-500 uppercase">or sign up</button>
+                        <Link to="/signup">
+                            <button className="text-xs text-gray-500 uppercase">or sign up</button>   
+                        </Link>
                         <span className="border-b w-1/5 md:w-1/4"></span>
                     </div>
                 </div>

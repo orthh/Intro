@@ -41,21 +41,30 @@ public class UserController {
 
     @Operation(summary = "회원가입")
     @PostMapping("/join")
-    public String join(@RequestBody UserJoinReqDto request) {
-        return userService.join(request);
+    public ResponseEntity<Long> join(@RequestBody UserJoinReqDto request) {
+        Long userId = userService.join(request);
+        if (userId != null) {
+            log.info("회원가입 성공 with UserEmail = {}", request.getEmail());
+            return ResponseEntity.ok(userId);
+        }else{
+            log.info("회원가입 실패 with UserEmail = {}", request.getEmail());
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
     }
 
 
     @Operation(summary = "로그인")
     @PostMapping("/login")
-    public ResponseEntity<UserLoginResDto> login(@RequestBody UserLoginReqDto request) {
-        UserLoginResDto user = userService.authenticate(request);
-        if (user != null) {
-            log.info("로그인 성공 with UserEmail = {}", user.getEmail());
-            return ResponseEntity.ok(user);
+    public ResponseEntity<Long> login(@RequestBody UserLoginReqDto request) {
+        Long userId = userService.authenticate(request);
+        if (userId != null) {
+            log.info("로그인 성공 with UserEmail = {}", request.getEmail());
+            return ResponseEntity.ok(userId);
+        }else{
+            log.info("로그인 실패 with UserEmail = {}", request.getEmail());
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
-        log.info("로그인 실패 with UserEmail = {}", request.getEmail());
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        
     }
 
     @Operation(summary = "모든 사용자 정보를 가져옵니다.")

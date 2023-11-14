@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 public class User {
-        private int id;
+        private Long id;
         private String email;
         private String password;
         private String nickname;

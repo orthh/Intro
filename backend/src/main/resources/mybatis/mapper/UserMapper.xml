@@ -22,7 +22,7 @@
   </insert>
 
   <select id="findByEmail" resultType="com.orthh.backend.domain.User">
-    SELECT * 
+    SELECT *
       FROM users u 
      WHERE u.email = #{email}
   </select>
