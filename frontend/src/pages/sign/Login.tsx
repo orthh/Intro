@@ -13,12 +13,14 @@ const Login = () => {
   const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8081/user/login', {
+            const response = await axios.post('http://localhost:8081/v1/auth/signin', {
                 email,
                 password,
             });
             if (response.status === 200) {
                 // 로그인 성공 시 메인 페이지로 이동
+                // accesstoken 저장
+                localStorage.setItem('token', response.data.token);
                 navigate('/')
               } else {
                 setError('로그인 실패');

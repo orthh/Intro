@@ -7,6 +7,9 @@ import Main from 'pages/main/Main';
 import Signup from 'pages/sign/Signup';
 
 function App() {
+
+  
+
   return (
     <Router>
       <div className="App font-pretendard">

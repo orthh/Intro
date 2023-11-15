@@ -35,6 +35,7 @@ const Signup = () => {
             });
             if (response.status === 200) {
                 // 로그인 성공 시 메인 페이지로 이동
+                localStorage.setItem('token', response.data.token);
                 navigate('/')
               } else {
                 setError('로그인 실패');
