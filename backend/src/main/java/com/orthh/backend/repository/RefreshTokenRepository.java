@@ -10,5 +10,9 @@ import com.orthh.backend.domain.RefreshToken;
 
 import lombok.RequiredArgsConstructor;
 
+/*
+ * refresh token redis에 저장하기 위한 repository
+ */
 public interface RefreshTokenRepository extends CrudRepository<RefreshToken, String> {
+  
 }

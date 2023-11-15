@@ -7,11 +7,12 @@ import org.springframework.data.redis.core.RedisHash;
 public class RefreshToken {
 
     @Id
-    private Long userId;
     private String refreshToken;
 
-    public RefreshToken(Long userId, String refreshToken) {
-        this.userId = userId;
+    private String email;
+
+    public RefreshToken(String email, String refreshToken) {
+        this.email = email;
         this.refreshToken = refreshToken;
     }
 
@@ -19,7 +20,7 @@ public class RefreshToken {
         return refreshToken;
     }
 
-    public Long getUserId() {
-        return userId;
+    public String getEmail() {
+        return email;
     }
 }

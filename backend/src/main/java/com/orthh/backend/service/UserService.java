@@ -13,6 +13,9 @@ import com.orthh.backend.repository.UserRepository;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.RequiredArgsConstructor;
 
+/*
+ * jwt인증으로 변경중입니다. 아직은 사용.
+ */
 @Service
 @RequiredArgsConstructor
 public class UserService {

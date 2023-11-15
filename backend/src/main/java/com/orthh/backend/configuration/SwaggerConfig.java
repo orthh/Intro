@@ -41,4 +41,15 @@ public class SwaggerConfig {
                 .build();
     }
 
+    @Bean
+    public GroupedOpenApi group3() {
+        String[] pathsToMatch = { "/v1/**" };
+        // String[] pathsToExclued = {""};
+
+        return GroupedOpenApi.builder()
+                .group("jwt")
+                .pathsToMatch(pathsToMatch)
+                .build();
+    }
+
 }

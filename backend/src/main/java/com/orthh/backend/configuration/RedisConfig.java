@@ -17,18 +17,23 @@ public class RedisConfig {
   @Value("${spring.data.redis.port}")
   private int redisPort;
 
+  // Redis 연결을 설정하는 Bean
   @Bean
   public RedisConnectionFactory redisConnectionFactory() {
       return new LettuceConnectionFactory(redisHost, redisPort);
   }
 
+  // RedisTemplate을 생성하고 설정하는 Bean
   @Bean
     public RedisTemplate<String, String> redisTemplate() {
         RedisTemplate<String, String> redisTemplate = new RedisTemplate<>();
+
+        // Redis에 저장될 Key와 Value에 대한 직렬화/역직렬화를 설정
         redisTemplate.setKeySerializer(new StringRedisSerializer());
         redisTemplate.setValueSerializer(new StringRedisSerializer());
+        
         redisTemplate.setConnectionFactory(redisConnectionFactory());
         return redisTemplate;
-    }
+  }
 
 }

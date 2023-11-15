@@ -3,6 +3,12 @@
 
 <mapper namespace="com.orthh.backend.repository.UserRepository">
 
+  <select id="findById" parameterType="com.orthh.backend.domain.User">
+    SELECT *
+      FROM users
+     WHERE id = #{id}
+  </select>
+
   <insert id="save" parameterType="com.orthh.backend.domain.User"> 
     INSERT INTO users (
               email

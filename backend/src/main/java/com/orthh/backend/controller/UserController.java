@@ -28,6 +28,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/*
+ * 인증 관련은 jwt로 변환중. 아직은 사용중입니다.
+ */
 @Slf4j
 @RestController
 @RequiredArgsConstructor
