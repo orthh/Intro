@@ -2,8 +2,8 @@ spring:
     profiles:
         active: 
             # - dev
-            # - jwt
-        #   -prod
+            - jwt
+            - prod
 
 server:
     port: 8081
