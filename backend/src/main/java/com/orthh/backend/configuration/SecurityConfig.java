@@ -2,6 +2,7 @@ package com.orthh.backend.configuration;
 
 import com.orthh.backend.security.jwt.JwtAuthenticationFilter;
 import com.orthh.backend.service.JwtUserService;
+import com.orthh.backend.service.impl.JwtUserServiceImpl;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;

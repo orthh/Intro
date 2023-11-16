@@ -3,8 +3,11 @@ import axios from "axios";
 import kakao from "../../assets/img/kakao.png";
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { loginSuccess } from '../../redux/actions';
 
 const Login = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -13,14 +16,15 @@ const Login = () => {
   const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8081/v1/auth/signin', {
+            const response = await axios.post('http://3.39.239.240:8081/v1/auth/signin', {
                 email,
                 password,
             });
             if (response.status === 200) {
                 // 로그인 성공 시 메인 페이지로 이동
                 // accesstoken 저장
-                localStorage.setItem('token', response.data.token);
+                // localStorage.setItem('token', response.data);
+                dispatch(loginSuccess(response.data));
                 navigate('/')
               } else {
                 setError('로그인 실패');
@@ -34,13 +38,10 @@ const Login = () => {
   return (
     <div className="py-16">
             <div className="flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
-                <div className="hidden lg:block lg:w-1/2 bg-cover"
-                    style={{backgroundImage: "url('https://images.unsplash.com/photo-1624627274968-0fd0ab784a78?auto=format&fit=crop&q=80&w=2080&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}
-                    >
-                </div>
-                <div className="w-full p-8 lg:w-1/2">
+                <div className="w-full p-8 lg:w-1/1">
                     <p className="text-xl text-gray-600 text-center">Welcome!</p>
-                    <button className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100 w-full">
+                    {/* 소셜 로그인 */}
+                    {/* <button className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100 w-full">
                         <div className="px-4 py-3">
                             <svg className="h-6 w-6" viewBox="0 0 40 40">
                                 <path
@@ -64,14 +65,14 @@ const Login = () => {
                             <img src={kakao} alt="Kakao logo" className="w-[25px] h-auto tracking-tight" />
                         </div>
                         <h1 className="px-4 py-3 w-5/6 text-center text-gray-600 font-bold">Sign in with Kakao</h1>
-                    </button>
+                    </button> */}
                     <div className="mt-4 flex items-center justify-between">
                         <span className="border-b w-1/5 lg:w-1/4"></span>
-                        <p className="text-xs text-center text-gray-500 uppercase">or login with email</p>
+                        <p className="text-xs text-center text-gray-500 uppercase">login with email</p>
                         <span className="border-b w-1/5 lg:w-1/4"></span>
                     </div>
                     <div className="mt-4">
-                        <label className="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
+                        <label className="block text-gray-700 text-sm font-bold mb-2">이메일</label>
                         <input className="bg-gray-200 text-gray-700 focus:outline-none border border-gray-300 rounded py-2 px-4 block w-full appearance-none" 
                                type="email" 
                                value={email}
@@ -79,8 +80,8 @@ const Login = () => {
                     </div>
                     <div className="mt-4">
                         <div className="flex justify-between">
-                            <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
-                            <button className="text-xs text-gray-500">Forget Password?</button>
+                            <label className="block text-gray-700 text-sm font-bold mb-2">비밀번호</label>
+                            {/* <button className="text-xs text-gray-500">Forget Password?</button> */}
                         </div>
                         <input className="bg-gray-200 text-gray-700 focus:outline-none border border-gray-300 rounded py-2 px-4 block w-full appearance-none" 
                                type="password" 
@@ -90,12 +91,12 @@ const Login = () => {
                     </div>
                     <div className="mt-8">
                         <button className="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600"
-                                onClick={handleSubmit}>Login</button>
+                                onClick={handleSubmit}>로그인</button>
                     </div>
                     <div className="mt-4 flex items-center justify-between">
                         <span className="border-b w-1/5 md:w-1/4"></span>
                         <Link to="/signup">
-                            <button className="text-xs text-gray-500 uppercase">or sign up</button>   
+                            <button className="text-xs text-gray-500 uppercase">회원가입</button>   
                         </Link>
                         <span className="border-b w-1/5 md:w-1/4"></span>
                     </div>

@@ -7,10 +7,15 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 public class JwtAuthenticationResponse {
+
+  private Long id;
   private String token;
+  private String role;
 
   @Builder
-  public JwtAuthenticationResponse(String token) {
+  public JwtAuthenticationResponse(Long id, String token, String role) {
+    this.id = id;
     this.token = token;
+    this.role = role;
   }
 }

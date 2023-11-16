@@ -3,7 +3,6 @@ package com.orthh.backend.controller;
 import com.orthh.backend.domain.User;
 import com.orthh.backend.dto.user.UserJoinReqDto;
 import com.orthh.backend.dto.user.UserLoginReqDto;
-import com.orthh.backend.dto.user.UserLoginResDto;
 import com.orthh.backend.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -36,47 +35,4 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
   private final UserService userService;
-
-  List<User> users = new ArrayList<User>();
-
-  @Operation(summary = "회원가입")
-  @PostMapping("/join")
-  public ResponseEntity<Long> join(@RequestBody UserJoinReqDto request) {
-    Long userId = userService.join(request);
-    if (userId != null) {
-      log.info("회원가입 성공 with UserEmail = {}", request.getEmail());
-      return ResponseEntity.ok(userId);
-    } else {
-      log.info("회원가입 실패 with UserEmail = {}", request.getEmail());
-      return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-    }
-  }
-
-  @Operation(summary = "로그인")
-  @PostMapping("/login")
-  public ResponseEntity<Long> login(@RequestBody UserLoginReqDto request) {
-    Long userId = userService.authenticate(request);
-    if (userId != null) {
-      log.info("로그인 성공 with UserEmail = {}", request.getEmail());
-      return ResponseEntity.ok(userId);
-    } else {
-      log.info("로그인 실패 with UserEmail = {}", request.getEmail());
-      return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-    }
-  }
-
-  @Operation(summary = "모든 사용자 정보를 가져옵니다.")
-  @GetMapping(value = "/getUsers")
-  public List<User> getUsers() {
-    log.info("start getUsers");
-    return users;
-  }
-
-  @Operation(
-      summary = "ID를 이용해 특정 사용자 정보를 가져옵니다.",
-      parameters = {@Parameter(name = "id", required = true, description = "사용자 ID")})
-  @GetMapping(value = "/getUser/{id}")
-  public User getUserById(@PathVariable(value = "id") int id) {
-    return users.stream().filter(x -> x.getId() == (id)).collect(Collectors.toList()).get(0);
-  }
 }
