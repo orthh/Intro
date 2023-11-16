@@ -10,7 +10,7 @@ server:
 
 cors:
     allowed:
-        origins: http://3.39.239.240:3000
+        origins: http://3.39.239.240
 
 # mybatis
 mybatis:
