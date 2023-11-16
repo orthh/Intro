@@ -28,7 +28,7 @@ const Signup = () => {
         event.preventDefault();
         if(password === confirmPwd){
             try {
-            const response = await axios.post('http://3.39.239.240:8081/user/join', {
+            const response = await axios.post('/api/v1/auth/signup', {
                 email,
                 password,
                 nickname
