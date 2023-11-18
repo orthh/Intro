@@ -19,7 +19,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Getter
 public class User implements UserDetails {
 
-  @Id private Long id;
+  @Id 
+  private Long userid;
   private String email;
   private String password;
   private String nickname;
@@ -32,6 +33,7 @@ public class User implements UserDetails {
     this.email = email;
     this.password = password;
     this.nickname = nickname;
+    this.createdDate = LocalDateTime.now();
     this.modifiedDate = LocalDateTime.now();
     this.role = role;
   }

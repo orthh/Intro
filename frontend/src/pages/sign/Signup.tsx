@@ -3,8 +3,11 @@ import axios from "axios";
 import kakao from "../../assets/img/kakao.png";
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { loginSuccess } from '../../redux/actions';
 
 const Signup = () => {
+      const dispatch = useDispatch();
   const navigate = useNavigate()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -28,14 +31,14 @@ const Signup = () => {
         event.preventDefault();
         if(password === confirmPwd){
             try {
-            const response = await axios.post('http://3.39.239.240:8081/v1/auth/signup', {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/v1/auth/signup`, {
                 email,
                 password,
                 nickname
             });
             if (response.status === 200) {
                 // 로그인 성공 시 메인 페이지로 이동
-                localStorage.setItem('token', response.data.token);
+                dispatch(loginSuccess(response.data));
                 navigate('/')
               } else {
                 setError('로그인 실패');

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Slf4j
 @RestController
 @RequestMapping("/v1/auth")
 @RequiredArgsConstructor
@@ -32,7 +31,6 @@ public class AuthenticationController {
   @Operation(summary = "jwt로그인")
   @PostMapping("/signin")
   public ResponseEntity<JwtAuthenticationResponse> signin(@RequestBody UserLoginReqDto request) {
-    log.info("로그인 userID = {} pwd = {}", request.getEmail(), request.getPassword());
     return ResponseEntity.ok(authenticationService.signin(request));
   }
 }

@@ -39,4 +39,12 @@ public class SwaggerConfig {
 
     return GroupedOpenApi.builder().group("jwt").pathsToMatch(pathsToMatch).build();
   }
+
+  @Bean
+  public GroupedOpenApi group4() {
+    String[] pathsToMatch = {"/product/**"};
+    // String[] pathsToExclued = {""};
+
+    return GroupedOpenApi.builder().group("product").pathsToMatch(pathsToMatch).build();
+  }
 }

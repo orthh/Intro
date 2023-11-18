@@ -43,7 +43,7 @@ public class SecurityConfig {
   private final String[] allowedUrls = {"/", "/v3/**", "/swagger-ui/**", "/v1/auth/**"};
 
   // 사용자에 허용된 URL 목록패턴
-  private final String[] allowedUserUrls = {"/user/**"};
+  private final String[] allowedUserUrls = {"/user/**", "/product/**"};
 
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {

@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /*
- * 인증 관련은 jwt로 변환중. 아직은 사용중입니다.
+ * 회원 관련 컨트롤러입니다.
  */
 @Slf4j
 @RestController

@@ -1,16 +1,13 @@
 spring:
     profiles:
         active: 
-            # - dev
+            - dev
             - jwt
-            - prod
+            # - prod
 
 server:
     port: 8081
 
-cors:
-    allowed:
-        origins: http://3.39.239.240
 
 # mybatis
 mybatis:

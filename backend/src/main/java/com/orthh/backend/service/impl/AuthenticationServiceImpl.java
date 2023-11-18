@@ -49,7 +49,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     String jwt = jwtService.generateToken(user);
     return JwtAuthenticationResponse.builder()
         .role(user.getRole())
-        .id(user.getId())
+        .id(user.getUserid())
         .token(jwt)
         .build();
   }

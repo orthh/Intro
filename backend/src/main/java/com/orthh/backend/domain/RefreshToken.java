@@ -6,7 +6,8 @@ import org.springframework.data.redis.core.RedisHash;
 @RedisHash(value = "refreshToken", timeToLive = 60 * 60 * 24 * 3)
 public class RefreshToken {
 
-  @Id private String refreshToken;
+  @Id 
+  private String refreshToken;
 
   private String email;
 

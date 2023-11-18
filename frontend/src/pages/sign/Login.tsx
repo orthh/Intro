@@ -16,7 +16,7 @@ const Login = () => {
   const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         try {
-            const response = await axios.post('http://3.39.239.240:8081/v1/auth/signin', {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/v1/auth/signin`, {
                 email,
                 password,
             });
@@ -24,6 +24,7 @@ const Login = () => {
                 // 로그인 성공 시 메인 페이지로 이동
                 // accesstoken 저장
                 // localStorage.setItem('token', response.data);
+                // console.log(response.data);
                 dispatch(loginSuccess(response.data));
                 navigate('/')
               } else {

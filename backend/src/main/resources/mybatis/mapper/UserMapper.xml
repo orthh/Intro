@@ -4,9 +4,15 @@
 <mapper namespace="com.orthh.backend.repository.UserRepository">
 
   <select id="findById" parameterType="com.orthh.backend.domain.User">
-    SELECT *
-      FROM users
-     WHERE id = #{id}
+    SELECT u.userid
+         , u.email 
+         , u.password
+         , u.nickname
+         , u.role
+         , u.createdDate
+         , u.modifiedDate
+      FROM users u
+     WHERE u.userid = #{id}
   </select>
 
   <insert id="save" parameterType="com.orthh.backend.domain.User"> 
@@ -28,7 +34,13 @@
   </insert>
 
   <select id="findByEmail" resultType="com.orthh.backend.domain.User">
-    SELECT *
+    SELECT u.userid
+         , u.email 
+         , u.password
+         , u.nickname
+         , u.role
+         , u.createdDate
+         , u.modifiedDate
       FROM users u 
      WHERE u.email = #{email}
   </select>
