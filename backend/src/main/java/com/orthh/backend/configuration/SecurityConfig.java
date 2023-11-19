@@ -40,10 +40,12 @@ public class SecurityConfig {
   private final JwtUserService jwtUserService;
 
   // 허용되는 URL 목록패턴
-  private final String[] allowedUrls = {"/", "/v3/**", "/swagger-ui/**", "/v1/auth/**"};
+  private final String[] allowedUrls = {
+    "/", "/v3/**", "/swagger-ui/**", "/v1/auth/**", "/product/**"
+  };
 
   // 사용자에 허용된 URL 목록패턴
-  private final String[] allowedUserUrls = {"/user/**", "/product/**"};
+  private final String[] allowedUserUrls = {"/user/**", "/product/save", "/rental/save"};
 
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {

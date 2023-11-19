@@ -10,16 +10,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ProductSaveReqDto {
 
-  String name;
-  String price;
-  String userid;
+  private String name;
+  private String price;
+  private String userid;
 
   public Product toEntity() {
     return Product.builder()
         .name(this.name)
         .status("available")
         .price(Integer.parseInt(this.price))
-        .userId(Long.parseLong(this.userid))
+        .userid(Long.parseLong(this.userid))
         .build();
   }
 }

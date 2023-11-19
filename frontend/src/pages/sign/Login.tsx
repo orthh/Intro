@@ -23,7 +23,7 @@ const Login = () => {
             if (response.status === 200) {
                 // 로그인 성공 시 메인 페이지로 이동
                 // accesstoken 저장
-                // localStorage.setItem('token', response.data);
+                localStorage.setItem('logindata', JSON.stringify(response.data));
                 // console.log(response.data);
                 dispatch(loginSuccess(response.data));
                 navigate('/')

@@ -19,4 +19,15 @@
             ) 
   </insert>
 
+  <select id="findAllProductsWithUser" resultType="com.orthh.backend.dto.product.ProductUserDto">
+    SELECT p.productid
+         , p.name
+         , p.status
+         , p.price
+         , u.userid
+         , u.nickname
+      FROM products p 
+      JOIN users u ON p.userid = u.userid
+  </select>
+
 </mapper>

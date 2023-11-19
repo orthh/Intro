@@ -11,13 +11,13 @@ public class Product {
   String name;
   String status;
   int price;
-  Long userId;
+  Long userid;
 
   @Builder
-  public Product(String name, String status, int price, Long userId) {
+  public Product(String name, String status, int price, Long userid) {
     this.name = name;
     this.status = status;
     this.price = price;
-    this.userId = userId;
+    this.userid = userid;
   }
 }

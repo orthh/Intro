@@ -38,6 +38,7 @@ const Signup = () => {
             });
             if (response.status === 200) {
                 // 로그인 성공 시 메인 페이지로 이동
+                localStorage.setItem('logindata', JSON.stringify(response.data));
                 dispatch(loginSuccess(response.data));
                 navigate('/')
               } else {

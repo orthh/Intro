@@ -26,7 +26,7 @@ const AddProduct = () => {
 
    const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
-        if(isLoggedIn){
+        if(token){
             try {
                 const response = await axios.post(`${process.env.REACT_APP_API_URL}/product/save`, {
                     name,
@@ -43,8 +43,10 @@ const AddProduct = () => {
                 console.log(response.data);
               }
             } catch (error) {
-                console.error('Login failed', error);
+                console.error('fetch failed', error);
             }
+        }else{
+            alert("로그인해주세요");
         }
         
     };
@@ -64,7 +66,6 @@ return (
                     <div className="mt-4">
                         <div className="flex justify-between">
                             <label className="block text-gray-700 text-sm font-bold mb-2">가격</label>
-                            {/* <button className="text-xs text-gray-500">Forget Password?</button> */}
                         </div>
                         <input className="bg-gray-200 text-gray-700 focus:outline-none border border-gray-300 rounded py-2 px-4 block w-full appearance-none" 
                                 type="text" 

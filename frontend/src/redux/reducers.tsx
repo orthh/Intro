@@ -1,7 +1,19 @@
+const storedDataString = localStorage.getItem('logindata');
+console.log("stored : ", storedDataString)
+let storedData = null;
+
+if (storedDataString) {
+  try {
+    storedData = JSON.parse(storedDataString);
+  } catch (error) {
+    // console.error('Error parsing stored login data:', error);
+  }
+}
+console.log(storedData);
 const initialState = {
-  isLoggedIn: false,
-  id: null,
-  token: null,
+  isLoggedIn: storedData ? storedData.isLoggedIn : false,
+  id: storedData ? storedData.id : null,
+  token: storedData ? storedData.token : null,
 };
 
 interface Res {
