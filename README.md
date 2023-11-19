@@ -1,10 +1,8 @@
-# PersonalRecord
-
-물품대여 서비스
+# 물품대여 시스템
 
 CI/CD 구현완료
 
-구현중 : 세부 개발
+구현중 : 세부 개발, redis
 
 백엔드 : SpringBoot + MyBatis + AWS RDS(mariaDB) + redis + Swagger + SpringSecurity
 <br/>
