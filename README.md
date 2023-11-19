@@ -1,12 +1,10 @@
 # PersonalRecord
 
-개인기록 서비스
-
-URL : http://3.39.239.240/
+물품대여 서비스
 
 CI/CD 구현완료
 
-구현중 : redis외 구현완료
+구현중 : 세부 개발
 
 백엔드 : SpringBoot + MyBatis + AWS RDS(mariaDB) + redis + Swagger + SpringSecurity
 <br/>
