@@ -24,11 +24,11 @@ const Header= () => {
   return (
     <header>
     <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+        <div className="flex justify-between items-center mx-auto max-w-screen-xl">
             <Link to="/" className="flex items-center">
                 <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">물품대여 시스템</span>
             </Link>
-            <div className="justify-between items-center w-full flex w-auto">
+            <div className="justify-between items-center flex w-auto">
                 <ul className="flex mt-4 font-medium flex-row space-x-8 mt-0">
                     <li>
                         <Link to="/addproduct">
