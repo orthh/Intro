@@ -84,7 +84,7 @@ const Pay = (props: Props) => {
               결제하기
             </button>
           </div>
-          <span>프로토타입으로 결제진행되지 않습니다.</span>
+          {/* <span>프로토타입으로 결제진행되지 않습니다.</span> */}
         </div>
     </div>
   )
