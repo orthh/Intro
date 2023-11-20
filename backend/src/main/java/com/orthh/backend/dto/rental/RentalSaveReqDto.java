@@ -10,4 +10,5 @@ public class RentalSaveReqDto {
   private String productId;
   private String orderUserId;
   private String rentDays;
+  private String amount;
 }

@@ -6,6 +6,8 @@ import Login from 'pages/sign/Login';
 import Main from 'pages/main/Main';
 import Signup from 'pages/sign/Signup';
 import AddProduct from 'pages/product/AddProduct';
+import Pay from 'pages/payment/Pay';
+import MyPage from 'pages/mypage/MyPage';
 
 function App() {
 
@@ -20,6 +22,9 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/addproduct" element={<AddProduct />} />
+          <Route path="/pay" element={<Pay />} />
+          <Route path="/mypage" element={<MyPage />} />
+
         </Routes>
       </div>
     </Router>

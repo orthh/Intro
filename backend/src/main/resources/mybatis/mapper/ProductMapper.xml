@@ -19,6 +19,12 @@
             ) 
   </insert>
 
+  <update id="changeStatus">
+    UPDATE products
+       SET status = #{status}
+     WHERE productid = #{productid}
+  </update>
+
   <select id="findAllProductsWithUser" resultType="com.orthh.backend.dto.product.ProductUserDto">
     SELECT p.productid
          , p.name
@@ -28,6 +34,27 @@
          , u.nickname
       FROM products p 
       JOIN users u ON p.userid = u.userid
+  </select>
+
+  <select id="findById" resultType="com.orthh.backend.domain.Product">
+    SELECT p.productid
+         , p.name
+         , p.status
+         , p.price
+      FROM products p 
+      WHERE p.productid = #{productid}
+  </select>
+
+  <select id="findByName" resultType="com.orthh.backend.dto.product.ProductUserDto">
+    SELECT p.productid
+         , p.name
+         , p.status
+         , p.price
+         , u.userid
+         , u.nickname
+      FROM products p 
+      JOIN users u ON p.userid = u.userid
+      WHERE p.name LIKE CONCAT('%', #{name}, '%')
   </select>
 
 </mapper>

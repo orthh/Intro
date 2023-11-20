@@ -1,5 +1,4 @@
 const storedDataString = localStorage.getItem('logindata');
-console.log("stored : ", storedDataString)
 let storedData = null;
 
 if (storedDataString) {
@@ -9,7 +8,6 @@ if (storedDataString) {
     // console.error('Error parsing stored login data:', error);
   }
 }
-console.log(storedData);
 const initialState = {
   isLoggedIn: storedData ? storedData.isLoggedIn : false,
   id: storedData ? storedData.id : null,

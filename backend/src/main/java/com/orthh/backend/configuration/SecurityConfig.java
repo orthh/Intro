@@ -24,6 +24,14 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+
+/**
+ * SpringSecurity 설정파일
+ *
+ * @author 김혁
+ * @since 2023.11.16
+ * @version 1.0
+ */
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -45,7 +53,7 @@ public class SecurityConfig {
   };
 
   // 사용자에 허용된 URL 목록패턴
-  private final String[] allowedUserUrls = {"/user/**", "/product/save", "/rental/save"};
+  private final String[] allowedUserUrls = {"/user/**", "/product/save", "/rental/**"};
 
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {

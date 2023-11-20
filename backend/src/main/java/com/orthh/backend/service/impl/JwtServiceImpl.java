@@ -15,6 +15,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+/**
+ * jwt 관련 서비스
+ *
+ * @author 김혁
+ * @since 2023.11.14
+ * @version 1.0
+ */
 @Service
 public class JwtServiceImpl implements JwtService {
   @Value("${jwt.secret-key}")

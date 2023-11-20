@@ -3,7 +3,7 @@
 
 <mapper namespace="com.orthh.backend.repository.RentalRepository">
 
-  <insert id="save" parameterType="com.orthh.backend.domain.Rental"> 
+  <insert id="save" parameterType="com.orthh.backend.domain.Rental" useGeneratedKeys="true" keyProperty="rentalid"> 
     INSERT INTO rentals (
               userid
             , productid
@@ -20,5 +20,33 @@
             , #{returndate}
             ) 
   </insert>
+
+  <select id="getByUserID" resultType="com.orthh.backend.dto.rental.RentalResDto">
+    SELECT r.rentalid
+         , r.startdate
+         , r.duedate
+         , p.productid
+         , p.name
+      FROM rentals r
+      JOIN products p ON r.productid = p.productid
+     WHERE r.userid = #{userId} AND r.returndate IS NULL
+  </select>
+
+  <select id="findById" resultType="com.orthh.backend.domain.Rental">
+    SELECT r.rentalid
+         , r.startdate
+         , r.duedate
+         , r.userid
+         , r.productid
+         , r.returndate
+      FROM rentals r
+     WHERE r.rentalid = #{rentalId}
+  </select>
+
+  <update id="updateReturnDate">
+    UPDATE rentals
+      SET returndate = #{returnDate}
+     WHERE rentalid = #{rentalId}
+  </update>
 
 </mapper>

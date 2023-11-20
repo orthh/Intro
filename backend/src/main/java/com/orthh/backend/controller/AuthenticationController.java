@@ -14,6 +14,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 인증 관련 controller
+ *
+ * @author 김혁
+ * @since 2023-11-15
+ * @version 1.0
+ */
 @RestController
 @RequestMapping("/v1/auth")
 @RequiredArgsConstructor
@@ -22,13 +29,13 @@ public class AuthenticationController {
 
   private final AuthenticationServiceImpl authenticationService;
 
-  @Operation(summary = "jwt회원가입")
+  @Operation(summary = "회원가입")
   @PostMapping("/signup")
   public ResponseEntity<JwtAuthenticationResponse> signup(@RequestBody UserJoinReqDto request) {
     return ResponseEntity.ok(authenticationService.signup(request));
   }
 
-  @Operation(summary = "jwt로그인")
+  @Operation(summary = "로그인")
   @PostMapping("/signin")
   public ResponseEntity<JwtAuthenticationResponse> signin(@RequestBody UserLoginReqDto request) {
     return ResponseEntity.ok(authenticationService.signin(request));

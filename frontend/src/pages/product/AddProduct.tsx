@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../../redux/actions';
+
 
 /*
 * 물픔등록 페이지
@@ -15,6 +17,7 @@ interface State {
 }
 
 const AddProduct = () => {
+  const dispatch = useDispatch();
   const isLoggedIn = useSelector((state: State) => state.isLoggedIn);
   const userid = useSelector((state: State) => state.id);
   const token = useSelector((state: State) => state.token);
@@ -37,11 +40,13 @@ const AddProduct = () => {
                         'Authorization': `Bearer ${token}`
                     }
                 });
-            if (response.status === 200) { // 물픔등록 성공
-                navigate('/')
-              } else {
-                console.log(response.data);
-              }
+                if (response.status === 200) { // 물픔등록 성공
+                    navigate('/')
+                } else {
+                    dispatch(logout(0));
+                    localStorage.removeItem('logindata');
+                    alert("로그인해주세요");
+                }
             } catch (error) {
                 console.error('fetch failed', error);
             }
@@ -65,7 +70,7 @@ return (
                     </div>
                     <div className="mt-4">
                         <div className="flex justify-between">
-                            <label className="block text-gray-700 text-sm font-bold mb-2">가격</label>
+                            <label className="block text-gray-700 text-sm font-bold mb-2">가격 (숫자만 입력해주세요)</label>
                         </div>
                         <input className="bg-gray-200 text-gray-700 focus:outline-none border border-gray-300 rounded py-2 px-4 block w-full appearance-none" 
                                 type="text" 

@@ -24,8 +24,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-/*
- * 회원 관련 컨트롤러입니다.
+/**
+ * 회원 관련 컨트롤러
+ *
+ * @author 김혁
+ * @since 2023.11.14
+ * @version 1.0
  */
 @Slf4j
 @RestController

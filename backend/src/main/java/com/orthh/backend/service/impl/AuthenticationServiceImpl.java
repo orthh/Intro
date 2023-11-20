@@ -12,8 +12,12 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-/*
- * 사용자 인증에 관련된 서비스를 제공하는 클래스
+/**
+ * 회원 관련 서비스
+ *
+ * @author orthh
+ * @since 2023-11-15
+ * @version 1.0
  */
 @Service
 @RequiredArgsConstructor
@@ -23,7 +27,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
   private final JwtServiceImpl jwtService;
   private final AuthenticationManager authenticationManager;
 
-  // 회원가입
+  /**
+   * 회원가입 method
+   *
+   * @param UserJoinReqDto
+   * @return JwtAuthenticationResponse
+   */
   @Override
   public JwtAuthenticationResponse signup(UserJoinReqDto request) {
     User user =
@@ -34,12 +43,22 @@ public class AuthenticationServiceImpl implements AuthenticationService {
             .role("ROLE_USER") // 기본적으로 "ROLE_USER"로 설정
             .build();
     userRepository.save(user);
-    String jwt = jwtService.generateToken(user); // 사용자 정보를 바탕으로 JWT를 생성
-    return JwtAuthenticationResponse.builder().token(jwt).build();
+    User newUser = userRepository.findByEmail(request.getEmail());
+    String jwt = jwtService.generateToken(newUser); // 사용자 정보를 바탕으로 JWT를 생성
+    return JwtAuthenticationResponse.builder()
+        .role(newUser.getRole())
+        .id(newUser.getUserid())
+        .token(jwt)
+        .build();
   }
 
+  /**
+   * 로그인 method
+   * 
+   * @param UserLoginReqDto
+   * @return JwtAuthenticationResponse
+   */
   @Override
-  // 로그인
   public JwtAuthenticationResponse signin(UserLoginReqDto request) {
     authenticationManager.authenticate(
         new UsernamePasswordAuthenticationToken(

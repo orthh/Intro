@@ -8,6 +8,13 @@ import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactor
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
+/**
+ * refresh token 저장을 위한 redisConfig accesstoken 구현후 현재 refresh token 적용중이 아닙니다. 추후 추가 예정
+ *
+ * @author 김혁
+ * @since 2023.11.14
+ * @version 1.0
+ */
 @Configuration
 public class RedisConfig {
 
