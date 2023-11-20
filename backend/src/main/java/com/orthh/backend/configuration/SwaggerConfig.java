@@ -28,20 +28,20 @@ public class SwaggerConfig {
                 .description("물품대여 시스템 (인증이 필요한부분은 막혀있습니다. 추후 swagger 적용예정)"));
   }
 
-  @Bean
-  public GroupedOpenApi group1() {
-    String[] packagesToScan = {"com.orthh.backend.admin"};
+  // @Bean
+  // public GroupedOpenApi group1() {
+  //   String[] packagesToScan = {"com.orthh.backend.admin"};
 
-    return GroupedOpenApi.builder().group("admin").packagesToScan(packagesToScan).build();
-  }
+  //   return GroupedOpenApi.builder().group("admin").packagesToScan(packagesToScan).build();
+  // }
 
-  @Bean
-  public GroupedOpenApi group2() {
-    String[] pathsToMatch = {"/user/**"};
-    // String[] pathsToExclued = {""};
+  // @Bean
+  // public GroupedOpenApi group2() {
+  //   String[] pathsToMatch = {"/user/**"};
+  //   // String[] pathsToExclued = {""};
 
-    return GroupedOpenApi.builder().group("user").pathsToMatch(pathsToMatch).build();
-  }
+  //   return GroupedOpenApi.builder().group("user").pathsToMatch(pathsToMatch).build();
+  // }
 
   @Bean
   public GroupedOpenApi group3() {
