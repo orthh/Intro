@@ -1,19 +1,4 @@
 # 물품대여 시스템
 
-CI/CD 구현완료
-
-구현중 : 세부 개발, redis
-
-백엔드 : SpringBoot + MyBatis + AWS RDS(mariaDB) + redis + Swagger + SpringSecurity
-<br/>
-서버(CI/CD) : AWS EC2 + jenkins + Docker + nginx + Github Webhook
-<br/>
-프론트 엔드 : Reactjs + typescript + tailwincss
-
-## 시스템 아키텍처
-
-![스크린샷 2023-11-12 145716](https://github.com/orthh/PersonalRecord/assets/107793363/64bc8992-44a3-47ef-bdeb-fca726b3d966)
-
-## jenkins
-
-![스크린샷 2023-11-12 162919](https://github.com/orthh/PersonalRecord/assets/107793363/f623a640-9e03-4760-b648-b953f416c97a)
+![002](https://github.com/orthh/PersonalRecord/assets/107793363/6e1621bc-e5bf-48c1-89c5-e5e1baf27d8e)
+![003](https://github.com/orthh/PersonalRecord/assets/107793363/e58e2e1e-2005-4ece-b520-4c13c23254eb)
